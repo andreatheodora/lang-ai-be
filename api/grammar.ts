@@ -1,11 +1,12 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { basicApi } from "../services/basicApi";
+import { grammarApi } from "../services/grammarApi";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method == "POST") {
-    const { input, words = [], grammars = [], language, level } = req.body;
+    const { input, grammar = "", language, level } = req.body;
+    console.log(input);
     try {
-      const response = await basicApi(input, words, grammars, language, level);
+      const response = await grammarApi(input, grammar, language, level);
       res.send(response);
     } catch (err) {
       console.error("API error: ", err);
