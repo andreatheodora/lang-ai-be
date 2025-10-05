@@ -25,11 +25,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const { input, words = [], grammars = [], language, level } = req.body;
     try {
       const response = await basicApi(input, words, grammars, language, level);
-      res.send(response);
+      res.status(200).send(response);
     } catch (err) {
       console.error("API error: ", err);
       res.status(500).json({ message: err });
     }
   }
-  res.status(200).json({ message: "Backend reached!" });
 }
