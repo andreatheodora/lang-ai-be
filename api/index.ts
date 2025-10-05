@@ -23,6 +23,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   if (req.method == "POST") {
     const { input, words = [], grammars = [], language, level } = req.body;
+    console.log(input);
     try {
       const response = await basicApi(input, words, grammars, language, level);
       return res.status(200).json({ message: response });

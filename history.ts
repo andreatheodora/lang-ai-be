@@ -1,4 +1,4 @@
-type HistoryItem = {
+export type HistoryItem = {
   role: string;
   parts: { text: string | undefined }[];
 };

@@ -1,15 +1,9 @@
 import { ai } from "../aiClient";
-
-type InputPart = {
-  role: string;
-  parts: Record<string, any>[]; // list of JSON-like objects
-};
-
-let input: InputPart[];
+import { HistoryItem } from "../history";
 
 //DEFAULT - Convo based on topic - User chooses a topic
 export async function basicApi(
-  input: InputPart[],
+  input: HistoryItem[],
   words: string[],
   grammars: string[],
   language: string,
