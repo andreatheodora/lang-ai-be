@@ -16,6 +16,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     "Access-Control-Allow-Headers",
     "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization"
   );
+
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
   if (req.method == "POST") {
     const { input, words = [], grammars = [], language, level } = req.body;
     try {
@@ -26,4 +31,5 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       res.status(500).json({ message: err });
     }
   }
+  res.status(200).json({ message: "Backend reached!" });
 }
