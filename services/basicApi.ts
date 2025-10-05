@@ -9,17 +9,6 @@ export async function basicApi(
   language: string,
   level: string
 ): Promise<string | undefined> {
-  /*
-  if (history.length >= 10) {
-    history.shift();
-  }
-
-  
-  history.push({
-    role: "user",
-    parts: [{ text: input }],
-  });*/
-
   try {
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash-lite",
@@ -27,6 +16,8 @@ export async function basicApi(
       config: {
         systemInstruction: `You are a ${language} tutor. You will only reply in this language.
           The user's language comprehension level is ${level}.
+          The user has learned these words: ${words}
+          The user has learned these grammar points: ${grammars}
           Adjust your word choices and teachning material to this comprehension level.
           Add a translation next to words that are beyond the user's level. 
           Examples: 
@@ -36,18 +27,11 @@ export async function basicApi(
           -最后，小雨滴流进了一条小河 (xiǎohé=river)
           -有时候有太阳 (tàiyáng=sun)
           -Er hat die Situation ruhig und überlegt (calmly, thoughtfully) gelöst.
-          You must always correct the user if they make a mistake or if the sentence feels awkward
-          The user is currently learning these words: ${words}
-          The user is currently learning these grammar points: ${grammars}
+          Important: You must always check the user's sentence for errors and correct them.
           `,
       },
     });
     const reply = response.text;
-    /*
-    history.push({
-      role: "model",
-      parts: [{ text: reply }],
-    });*/
     return reply;
   } catch (err) {
     console.error(err);
