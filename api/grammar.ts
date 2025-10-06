@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { grammarApi } from "../services/grammarApi.js";
+import { grammarApi } from "../services/grammarApi.ts";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method == "POST") {
