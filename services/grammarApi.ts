@@ -1,5 +1,5 @@
-import { ai } from "../aiClient";
-import { history } from "../history";
+import { ai } from "../aiClient.ts";
+import { history } from "../history.ts";
 
 //GRAMMAR (in use) - User chooses a grammar point. AI gives a sentence (EN), user translates
 export async function grammarApi(

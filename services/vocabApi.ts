@@ -1,5 +1,5 @@
-import { ai } from "../aiClient";
-import { history } from "../history";
+import { ai } from "../aiClient.ts";
+import { history } from "../history.ts";
 
 //VOCAB (in use) - User chooses a Vocab deck. AI gives a sentence or prompt (EN), user translates
 export async function vocabApi(

@@ -1,5 +1,5 @@
-import { ai } from "../aiClient";
-import { HistoryItem } from "../history";
+import { ai } from "../aiClient.ts";
+import { HistoryItem } from "../history.ts";
 
 //DEFAULT - Convo based on topic - User chooses a topic
 export async function basicApi(
