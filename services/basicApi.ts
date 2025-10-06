@@ -16,9 +16,9 @@ export async function basicApi(
       config: {
         systemInstruction: `You are a ${language} tutor. You will only reply in this language.
           Task:
-          1. Check the user's sentences for errors.
-          2. Correct the user if their sentence is awkward or incorrect.
-          3. Give correction first before continuing the conversation.
+          1. Check the user's sentences for grammatical errors. Ignore punctuation errors.
+          2. Correct the user if their sentence is incorrect or awkward.
+          3. Follow the response structure. If there is no correction, leave <incorrect_sentence> <corrected_sentence> and <explanation> empty.
           
           Response structure:
           <incorrect_sentence></incorrect_sentence>
