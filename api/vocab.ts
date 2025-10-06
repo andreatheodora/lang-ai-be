@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { vocabApi } from "../services/vocabApi";
+import { vocabApi } from "../services/vocabApi.js";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method == "POST") {
